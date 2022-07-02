@@ -46,15 +46,33 @@ class Line:
         else:
             return False
 
+    @ staticmethod
+    def comparison_method(line_1, line_2):
+        """
+        create function for to find the relation between the two lines
+        :param line_1:
+        :param line_2:
+        :return:
+        """
+        if line_1 > line_2:
+            return 1
+        if line_1 < line_2:
+            return -1
+        if line_1 == line_2:
+            return 0
+
 
 if __name__ == "__main__":
     # Creating object for Line class and calling calculation function
     try:
         line_1 = Line(2, 5, 6, 7)
-        line_2 = Line(2, 5, 6, 7)
+        line_2 = Line(3, 6, 8, 7)
         print(line_1.calculate_length())
         print(line_2.calculate_length())
         print(line_1.check_equality(line_1.calculate_length(), line_2.calculate_length()))
+        print(line_1.comparison_method(line_1.calculate_length(), line_2.calculate_length()))
 
     except ValueError:
         logging.exception("please enter integer value")
+    except Exception as e:
+        logging.error(e)
