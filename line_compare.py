@@ -29,15 +29,32 @@ class Line:
         """
         try:
             length = math.sqrt((self.x2 - self.x1) ^ 2 + (self.y2 - self.y1) ^ 2)
-            print(f"Length of the line is : ", {length})
+            return length
         except ValueError:
             logging.exception("something went wrong")
+
+    @staticmethod
+    def check_equality(line_1, line_2):
+        """
+        create a function name as check_equality for check the line length based on end points
+        :param line_1:
+        :param line_2:
+        :return:
+        """
+        if line_1 == line_2:
+            return True
+        else:
+            return False
 
 
 if __name__ == "__main__":
     # Creating object for Line class and calling calculation function
     try:
-        line = Line(2, 5, 6, 7)
-        line.calculate_length()
+        line_1 = Line(2, 5, 6, 7)
+        line_2 = Line(2, 5, 6, 7)
+        print(line_1.calculate_length())
+        print(line_2.calculate_length())
+        print(line_1.check_equality(line_1.calculate_length(), line_2.calculate_length()))
+
     except ValueError:
         logging.exception("please enter integer value")
